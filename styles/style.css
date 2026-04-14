@@ -1,5 +1,457 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+}
+
+.header {
+  display: grid;
+  position: relative;
+  height: 100vh;
+  min-height: 668px;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: 10px;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
+  border-top: 1px solid var(--decor-color);
+  border-right: 1px solid var(--decor-color);
+}
+
+.decorated-zone::after {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1px solid var(--decor-color);
+  border-left: 1px solid var(--decor-color);
+}
+
+.rec {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--accent-color);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.rec::after {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: start;
+  margin-block-start: 65px;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 1.5px 13px 4px;
+  color: var(--decor-color);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--button-hover-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decor-color);
+}
+
+.header__theme-menu-button_active {
+  border-color: var(--decor-color);
+  pointer-events: none;
+}
+
+.header__title {
+  align-self: center;
+  justify-self: start;
+  grid-row: 2;
+  color: var(--header-title-color);
+  font-family: var(--font-family);
+  font-size: var(--header-title-size-mobile);
+  font-weight: 700;
+  line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__subtitle {
+  grid-row: 3;
+  align-self: center;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 130%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.title-decor {
+  color: var(--title-color);
+  background-color: var(--accent-color);
+}
+
+@media (width >= 768px) {
+  .header {
+    padding-right: 20px;
+    min-height: 1024px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .rec {
+    top: 20px;
+  }
+
+  .header__title {
+    font-size: var(--header-title-size-desktop);
+  }
+
+  .header__subtitle {
+    width: 50%;
+    align-self: center;
+    justify-self: flex-end;
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    padding-right: 20px;
+    min-height: 768px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 40px;
+    left: 30px;
+  }
+
+  .rec {
+    top: 20px;
+  }
+
+  .header__theme-menu-list {
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  .header__theme-menu {
+    margin-block-start: 11px;
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: start;
+    padding: 0;
+    transform: translateX(15px);
+  }
+
+  .header__subtitle {
+    width: 50%;
+    justify-self: flex-end;
+    transform: translateX(17px) translateY(-4px);
+  }
+}
+
+.main {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
+.content-section {
+  display: grid;
+  gap: 20px;
+}
+
+.section-title {
+  color: var(--section-title-color);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.content-section__body {
+  display: grid;
+  gap: 20px;
+}
+
+.content-section__body_cards {
+  display: grid;
+  gap: 20px;
+}
+
+.content-section__group {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  display: grid;
+  gap: 10px;
+}
+
+.card-title {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.card-title_regular {
+  font-weight: 400;
+}
+
+.title-decor {
+  color: var(--title-decor-text);
+  background-color: var(--title-decor-bg);
+}
+
+.card-text {
+  color: var(--main-text-color);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+}
+
+.card-text + .card-text {
+  margin-top: 10px;
+}
+
+.text-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.text-link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.text-link:focus {
+  outline: none;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__title {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.gallery__list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  display: grid;
+  position: relative;
+  min-height: 668px;
+  padding: 10px;
+  height: 100vh;
+  grid-template-rows: 1fr auto;
+}
+
+@media (width >= 768px) {
+  .footer {
+    min-height: 1024px;
+    text-align: center;
+  }
+}
+
+.footer__title {
+  align-self: center;
+  color: var(--header-title-color);
+  font-family: var(--font-family);
+  font-size: var(--header-title-size-mobile);
+  font-weight: 700;
+  line-height: 82.5%;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.footer__subtitle {
+  justify-self: end;
+  align-self: center;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 130%;
+  color: var(--header-title-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  font-size: var(--header-title-size-mobile);
+}
+
+@media (width >= 768px) {
+  .footer__subtitle {
+    display: inline-block;
+  }
+}
+
+@media (width >= 768px) {
+  .main {
+    gap: 80px;
+    padding: 60px 20px;
+  }
+
+  .content-section {
+    grid-template-columns: 236px 1fr;
+    gap: 20px;
+  }
+
+  .content-section__question-what {
+    grid-template-columns: 1fr;
+  }
+
+  .content-section__question-what .section-title {
+    max-width: 236px;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery__image_sunset {
+    grid-column: 1 / 3;
+  }
+
+  .gallery__image_ice-cream {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .gallery__image_tape {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+
+  .gallery__image_books {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .gallery__image_street {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (width >= 1024px) {
+  .main {
+    padding-right: 10px;
+    padding-left: 30px;
+  }
+}
+
+@media (width >= 1024px) {
+  .content-section {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .content-section__question-what {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .content-section__question-what .section-title {
+    grid-column: 1 / -1;
+    max-width: 315px;
+    align-self: start;
+  }
+
+  .content-section__question-what .content-section__body_cards {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .footer {
+    min-height: 786px;
+    text-align: center;
+  }
+
+  .footer__subtitle {
+    font-size: var(--header-title-size-desktop);
+    transform: translateX(16px) translateY(-10px);
+  }
 }
