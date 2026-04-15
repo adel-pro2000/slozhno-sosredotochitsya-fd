@@ -16,17 +16,6 @@
   display: none;
 }
 
-.theme-light .header__theme-menu-button {
-  color: var(--decor-color);
-}
-
-.theme-light .header__title,
-.theme-light .header__subtitle,
-.theme-light .footer__title,
-.theme-light .footer__subtitle {
-  text-shadow: 4px 4px 0 var(--accent-color);
-}
-
 @media (prefers-color-scheme: light) {
   :root.theme-auto {
     --bg-image: url('../images/cover-image-light.png');
@@ -43,14 +32,5 @@
   }
   .theme-auto .rec {
     display: none;
-  }
-  .theme-auto .header__theme-menu-button {
-    color: var(--decor-color);
-  }
-  .theme-auto .header__title,
-  .theme-auto .header__subtitle,
-  .theme-auto .footer__title,
-  .theme-auto .footer__subtitle {
-    text-shadow: 4px 4px 0 var(--accent-color);
   }
 }

@@ -13,7 +13,6 @@
   height: 100dvh;
   min-height: 668px;
   grid-template-rows: 1fr min-content 1fr;
-  padding: 10px;
 }
 
 .decorated-zone {
@@ -127,7 +126,7 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 130%;
-  text-shadow: 4px 4px 0 var(--accent-color);
+  color: var(--title-color);
 }
 
 @media (width >= 768px) {
@@ -155,19 +154,13 @@
 
   .header__subtitle {
     width: 50%;
-    align-self: center;
     justify-self: flex-end;
   }
 }
 
 @media (width >= 1024px) {
   .header {
-    padding-right: 20px;
     min-height: 768px;
-  }
-
-  .decorated-zone::before {
-    top: 20px;
   }
 
   .decorated-zone::after {
@@ -175,12 +168,7 @@
     left: 30px;
   }
 
-  .rec {
-    top: 20px;
-  }
-
   .header__theme-menu-list {
-    display: grid;
     grid-auto-flow: column;
   }
 
@@ -189,15 +177,7 @@
     display: flex;
     flex-direction: row;
     justify-self: center;
-    align-self: start;
     padding: 0;
-    transform: translateX(15px);
-  }
-
-  .header__subtitle {
-    width: 50%;
-    justify-self: flex-end;
-    transform: translateX(17px) translateY(-4px);
   }
 }
 
@@ -248,7 +228,10 @@
 }
 
 .card-title_regular {
+  font-family: var(--font-family);
+  font-size: 18px;
   font-weight: 400;
+  line-height: 23.4px;
 }
 
 .title-decor {
@@ -325,16 +308,6 @@
   }
 }
 
-.footer__title {
-  align-self: center;
-  color: var(--header-title-color);
-  font-family: var(--font-family);
-  font-size: var(--header-title-size-mobile);
-  font-weight: 700;
-  line-height: 82.5%;
-  text-shadow: 2px 2px 0 var(--accent-color);
-}
-
 .footer__subtitle {
   justify-self: end;
   align-self: center;
@@ -350,10 +323,9 @@
 @media (width >= 768px) {
   .footer__subtitle {
     display: inline-block;
+    font-size: var(--header-title-size-desktop);
   }
-}
 
-@media (width >= 768px) {
   .main {
     gap: 80px;
     padding: 60px 20px;
@@ -361,7 +333,6 @@
 
   .content-section {
     grid-template-columns: 236px 1fr;
-    gap: 20px;
   }
 
   .content-section__question-what {
@@ -441,11 +412,7 @@
 
   .footer {
     min-height: 786px;
-    text-align: center;
-  }
-
-  .footer__subtitle {
-    font-size: var(--header-title-size-desktop);
-    transform: translateX(16px) translateY(-10px);
   }
 }
+
+
